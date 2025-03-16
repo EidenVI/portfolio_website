@@ -1,0 +1,33 @@
+/* https://rocky.framer.website <- example */
+
+body {
+    background-color: #0e1011;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+header, main, footer {
+    margin: 20px 0;
+}
+
+/* main section ^ */
+
+header{
+
+}
+
+/* topbar section ^ */
+
+/* message section ^ */
+
+/* cards section ^ */
+
+/* footer section ^ */
