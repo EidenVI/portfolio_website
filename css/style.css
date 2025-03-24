@@ -1,5 +1,23 @@
 /* https://rocky.framer.website <- example */
 
+
+.inter-style {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100; /* from 100 to 900 */
+    font-style: normal;
+}
+
+
+.plus-jakarta-sans-style {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100; /* from 100 to 900 */
+    font-style: normal;
+}
+
+/* style classes section ^ */
+
 body {
     background-color: #0e1011;
     margin: 0;
@@ -9,37 +27,119 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
+    padding: 0 20%;
     box-sizing: border-box;
 }
 
 header, main, footer {
-    margin: 20px 0;
+    margin: 2.5% 0;
+    background-color: aqua;
 }
 
 /* main section ^ */
 
-header{
-    margin-top: 200px;
-    margin-bottom: 200px;
+header {
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1000;
 }
 
 .topbar {
-    background-color: aliceblue;
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0px 0px 2px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 960px;
+    background-color: #0f1010e6;
+    border: solid rgba(255, 255, 255, 0.04) 2px;
+    border-radius: 20px;
+    padding: 0px 16px 0 24px;
+    margin: 0 auto;
+    box-shadow: none;
+    box-sizing: border-box;
+    backdrop-filter: blur(20px);
+    height: 72px;
+    gap: 12px;
 }
 
 .name-block {
-    margin-top: 0px;
+    flex: 1 0 0px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-optical-sizing: auto;
+    font-weight: 600; /* from 100 to 900 */
+    font-style: normal;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: start;
+}
+
+.icon-button1, .icon-button2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.icon-svg {
+    width: 32px;
+    height: 32px;
+    fill: #FFFFFF4D;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(20%) contrast(75%);
+}
+
+.icon-button1:hover .icon-svg, .icon-button2:hover .icon-svg {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(40%) contrast(75%);
 }
 
 /* topbar section ^ */
 
+.message-block {
+    background-color: black;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+.first-layer {
+    color: rgb(222, 222, 222);
+    font-size: 42px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.second-layer {
+    color: rgb(222, 222, 222);
+    font-size: 42px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.third-layer {
+    color: rgb(222, 222, 222);
+    font-size: 42px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+
 /* message section ^ */
 
 /* cards section ^ */
+
+footer {
+
+}
 
 /* footer section ^ */
