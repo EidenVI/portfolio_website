@@ -140,7 +140,7 @@ main {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  margin: 30% 0 20% 0;
+  margin: 60% 0 20% 0;
 }
 
 .message-block {
@@ -155,7 +155,7 @@ main {
   background-color: transparent;
   margin: 0 0 0 5%;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 1s ease-out;
 }
 
 .message-block.show {
@@ -293,11 +293,12 @@ main {
   transition: background 0.3s ease;
 }
 
-.project-card1:hover {
-  background-color: transparent;
-  background-image: url("../assets/img/AI_image.jpg");
-  background-size: cover;
-  background-position: center;
+.project-card1.project-card-hover-in {
+  animation: cardHoverIn 0.3s ease forwards;
+}
+
+.project-card1.project-card-hover-out {
+  animation: cardHoverOut 0.3s ease forwards;
 }
 
 .project-card3 {
@@ -312,11 +313,12 @@ main {
   transition: background 0.3s ease;
 }
 
-.project-card3:hover {
-  background-color: transparent;
-  background-image: url("../assets/img/AI_image.jpg");
-  background-size: cover;
-  background-position: center;
+.project-card3.project-card-hover-in {
+  animation: cardHoverIn 0.3s ease forwards;
+}
+
+.project-card3.project-card-hover-out {
+  animation: cardHoverOut 0.3s ease forwards;
 }
 
 .project-cards-right {
@@ -345,11 +347,12 @@ main {
   transition: background 0.3s ease;
 }
 
-.project-card2:hover {
-  background-color: transparent;
-  background-image: url("../assets/img/AI_image.jpg");
-  background-size: cover;
-  background-position: center;
+.project-card2.project-card-hover-in {
+  animation: cardHoverIn 0.3s ease forwards;
+}
+
+.project-card2.project-card-hover-out {
+  animation: cardHoverOut 0.3s ease forwards;
 }
 
 .project-card4 {
@@ -364,11 +367,12 @@ main {
   transition: background 0.3s ease;
 }
 
-.project-card4:hover {
-  background-color: transparent;
-  background-image: url("../assets/img/AI_image.jpg");
-  background-size: cover;
-  background-position: center;
+.project-card4.project-card-hover-in {
+  animation: cardHoverIn 0.3s ease forwards;
+}
+
+.project-card4.project-card-hover-out {
+  animation: cardHoverOut 0.3s ease forwards;
 }
 
 /* cards section ^ */
@@ -407,5 +411,37 @@ footer {
   }
   100% {
     transform: perspective(1200px) translateX(0);
+  }
+}
+
+/* Cards animation  */
+
+@keyframes cardHoverIn {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  30% {
+    transform: rotate(3deg) scale(1.05);
+  }
+  60% {
+    transform: rotate(5deg) scale(1.08);
+  }
+  100% {
+    transform: rotate(4.5deg) scale(1.1);
+  }
+}
+
+@keyframes cardHoverOut {
+  0% {
+    transform: rotate(4.5deg) scale(1.1);
+  }
+  30% {
+    transform: rotate(2deg) scale(1.05);
+  }
+  60% {
+    transform: rotate(-1deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
   }
 }

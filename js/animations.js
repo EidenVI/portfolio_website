@@ -14,35 +14,32 @@ var mailAnimation = lottie.loadAnimation({
     path: 'assets/icons/dynamic/Mail/mail.json'
 });
 
+let textAnimationPlayed = false;
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry)
-        if (entry.isIntersecting) {
+        if (entry.target.classList.contains('message-block')) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        } else if (!textAnimationPlayed && entry.isIntersecting) {
             entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show')
-        }
-    });
-})
-
-const observer_blocks = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        console.log(entry)
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show')
         }
     });
 }, {
-    threshold: 0.2
-})
+    threshold: 0.1
+});
 
-const hiddenElements = document.querySelectorAll('.first-layer');
+const hiddenElements = document.querySelectorAll('.first-layer, .second-layer, .nah-layer, .third-layer');
 hiddenElements.forEach((el) => observer.observe(el));
 
-const fadeInElements = document.querySelectorAll('.second-layer, .nah-layer, .third-layer');
-fadeInElements.forEach((el) => observer.observe(el));
+const thirdLayer = document.querySelector('.third-layer');
+observer.observe(thirdLayer);
+thirdLayer.addEventListener('animationend', () => {
+    textAnimationPlayed = true;
+});
 
 const messageBlock = document.querySelector('.message-block');
-observer_blocks.observe(messageBlock);
+observer.observe(messageBlock);
