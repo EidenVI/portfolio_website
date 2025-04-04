@@ -140,7 +140,7 @@ main {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  margin: 60% 0 20% 0;
+  margin: 80% 0 20% 0;
 }
 
 .message-block {
@@ -170,9 +170,21 @@ main {
 }
 
 .first-layer {
+  display: flex;
+  flex-direction: row;
   opacity: 0;
   transition: all 1s;
   transform: translateX(-2%);
+}
+
+.first-layer-emoji {
+  height: 40px;
+  width: 40px;
+  margin: 8px 0 0 8px;
+}
+
+.first-layer-emoji.rotate {
+  animation: emojiRotate 1s ease-out;
 }
 
 .second-layer,
@@ -213,6 +225,98 @@ main {
 }
 
 /* message section ^ */
+
+.scrolling-projects {
+  width: 960px;
+  margin: 6rem auto;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+.scrolling-projects::before {
+  content: '';
+  position: absolute;
+  top: 50%; /* Центрирование по вертикали */
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translate(-50%, -50%); /* Смещение для точного центрирования */
+  width: 100%; /* Охват всей ширины блока */
+  height: 100%; /* Охват всей высоты блока */
+  background: radial-gradient(
+    circle at center, /* Центрирование градиента */
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  filter: blur(100px);
+  z-index: -1;
+  mix-blend-mode: soft-light;
+  opacity: 0.8; 
+}
+
+.scrolling-container {
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 3%,
+    #000 97%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 3%,
+    #000 97%,
+    transparent 100%
+  );
+}
+
+.scrolling-content {
+  display: inline-flex;
+  gap: 5rem;
+  animation: scroll 25s linear infinite;
+  padding: 1.5rem 0;
+}
+
+.scrolling-content span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #e0e0e0;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  margin-top: -40px;
+  line-height: 4rem;
+}
+
+.scrolling-content:hover span {
+  opacity: 1;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-30%); }
+}
+
+@media (max-width: 1000px) {
+  .scrolling-projects {
+    width: 90vw;
+    padding: 3rem 0;
+  }
+  
+  .scrolling-content span {
+    font-size: 1.4rem;
+    gap: 3rem;
+  }
+  
+  .scrolling-projects::before {
+    filter: blur(30px);
+  }
+}
+
+/* projects section  */
 
 .project-cards-block {
   display: flex;
@@ -487,6 +591,27 @@ footer {
   }
   60% {
     transform: rotate(-1deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes emojiRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(15deg) scale(1.05);
+  }
+  60% {
+    transform: rotate(-5deg) scale(1.1);
+  }
+  80% {
+    transform: rotate(5deg) scale(1.05);
   }
   100% {
     transform: rotate(0deg) scale(1);
