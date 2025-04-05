@@ -34,3 +34,19 @@ cardsElements.forEach((card) => {
         card.classList.add('project-card-hover-out');
     });
 });
+
+// memoji onhover change
+const memojiImage = document.querySelector('.memoji-img');
+
+if (memojiImage) {
+    const defaultSrc = memojiImage.src;
+    const hoverSrc = 'assets/img/memoji_image_peace.png';
+
+    memojiImage.addEventListener('mouseenter', () => {
+        memojiImage.src = hoverSrc;
+    });
+
+    memojiImage.addEventListener('mouseleave', () => {
+        memojiImage.src = defaultSrc;
+    });
+}
