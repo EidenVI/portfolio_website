@@ -139,8 +139,9 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 200vh;
   margin: 80% 0 20% 0;
+  padding-top: 100px;
 }
 
 .message-block {
@@ -154,6 +155,7 @@ main {
   max-height: 560px;
   background-color: transparent;
   margin: 0 0 0 5%;
+  padding-bottom: 30%;
   opacity: 0;
   transition: opacity 1s ease-out;
 }

@@ -14,6 +14,7 @@ var mailAnimation = lottie.loadAnimation({
     path: 'assets/icons/dynamic/Mail/mail.json'
 });
 
+
 let textAnimationPlayed = false;
 
 const observer = new IntersectionObserver((entries) => {
@@ -34,7 +35,7 @@ const observer = new IntersectionObserver((entries) => {
                     emoji.classList.add('rotate');
                 }
             }
-        }
+         }
     });
 }, {
     threshold: 0.1
