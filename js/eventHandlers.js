@@ -35,6 +35,13 @@ cardsElements.forEach((card) => {
     });
 });
 
+document.querySelectorAll('.project-card1, .project-card2, .project-card3, .project-card4').forEach(card => {
+  const background = card.getAttribute('data-background');
+  if (background) {
+    card.style.backgroundImage = `url(${background})`;
+  }
+});
+
 // memoji onhover change
 const memojiImage = document.querySelector('.memoji-img');
 

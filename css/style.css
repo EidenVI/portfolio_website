@@ -48,6 +48,7 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  padding-top: 950px; /* Добавьте отступ сверху */
 }
 
 .container {
@@ -142,6 +143,7 @@ main {
   height: 200vh;
   margin: 80% 0 20% 0;
   padding-top: 100px;
+  background: url(assets/img/giphy.gif);
 }
 
 .message-block {
@@ -228,6 +230,104 @@ main {
 
 /* message section ^ */
 
+.personality-section {
+  position: relative;
+  height: 220vh;
+  margin: 18vh auto 30vh;
+  width: 86%;
+  max-width: 1400px;
+  overflow: visible;
+  z-index: 50;
+}
+
+.personality-layers {
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  pointer-events: none;
+}
+
+.p-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.p-layer span {
+  position: absolute;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 600;
+  color: rgba(255,255,255,0.64);
+  text-transform: lowercase;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.p-layer-1 span { font-size: 1.6rem; opacity: 0.4; }
+.p-layer-2 span { font-size: 2.0rem; opacity: 0.6; }
+.p-layer-3 span { font-size: 2.4rem; opacity: 0.8; }
+
+.p-layer-1 span:nth-child(1) { top: 12%; left: 8%; }
+.p-layer-1 span:nth-child(2) { top: 24%; left: 78%; }
+.p-layer-1 span:nth-child(3) { top: 48%; left: 14%; }
+.p-layer-1 span:nth-child(4) { top: 68%; left: 82%; }
+
+.p-layer-2 span:nth-child(1) { top: 8%; left: 68%; }
+.p-layer-2 span:nth-child(2) { top: 34%; left: 16%; }
+.p-layer-2 span:nth-child(3) { top: 58%; left: 74%; }
+.p-layer-2 span:nth-child(4) { top: 84%; left: 22%; }
+
+.p-layer-3 span:nth-child(1) { top: 4%; left: 22%; }
+.p-layer-3 span:nth-child(2) { top: 42%; left: 64%; }
+.p-layer-3 span:nth-child(3) { top: 62%; left: 8%; }
+.p-layer-3 span:nth-child(4) { top: 88%; left: 72%; }
+
+.core-statement {
+  position: sticky;
+  top: 40vh;
+  z-index: 100;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem;
+  mix-blend-mode: difference;
+}
+
+.core-statement h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  line-height: 1.12;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 1.4s ease-out;
+}
+
+.core-statement h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.core-statement::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -30%;
+  right: -30%;
+  bottom: -50%;
+  background: radial-gradient(circle, 
+    rgba(0,0,0,0.24) 0%, 
+    transparent 60%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* philophy section */
+
 .scrolling-projects {
   width: 960px;
   margin: 6rem auto;
@@ -239,13 +339,13 @@ main {
 .scrolling-projects::before {
   content: '';
   position: absolute;
-  top: 50%; /* Центрирование по вертикали */
-  left: 50%; /* Центрирование по горизонтали */
-  transform: translate(-50%, -50%); /* Смещение для точного центрирования */
-  width: 100%; /* Охват всей ширины блока */
-  height: 100%; /* Охват всей высоты блока */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
-    circle at center, /* Центрирование градиента */
+    circle at center,
     rgba(255, 255, 255, 0.15) 0%,
     rgba(255, 255, 255, 0) 80%
   );
@@ -342,48 +442,14 @@ main {
   max-width: 320px;
 }
 
-.project_git_link_1 {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: "Outward Block", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100; /* from 100 to 900 */
-  font-style: normal;
-  font-size: 100px;
-  letter-spacing: 2px;
-}
-
-.project_git_link_2 {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: "Outward Block", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100; /* from 100 to 900 */
-  font-style: normal;
-  font-size: 100px;
-  letter-spacing: 2px;
-}
-
-.project_git_link_3 {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: "Outward Round", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100; /* from 100 to 900 */
-  font-style: normal;
-  font-size: 100px;
-  letter-spacing: 2px;
-}
-
+.project_git_link_1,
+.project_git_link_2,
+.project_git_link_3,
 .project_git_link_4 {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: "Outward Round", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100; /* from 100 to 900 */
-  font-style: normal;
-  font-size: 100px;
-  letter-spacing: 2px;
+  font-family: "Plus Jakarta Sans", sans-serif; /* Шрифт, использованный ранее */
+  font-weight: 600; /* Пример настройки веса */
+  font-size: 1.2rem; /* Настройте размер шрифта */
+  letter-spacing: 0.05em; /* Настройте межбуквенный интервал */
 }
 
 .project-card1 {
@@ -481,6 +547,28 @@ main {
   animation: cardHoverOut 0.3s ease forwards;
 }
 
+.project-card1:hover,
+.project-card2:hover,
+.project-card3:hover,
+.project-card4:hover {
+  filter: brightness(0.8);
+}
+
+/* Добавьте или обновите стили для текста карточек */
+.project-name a {
+  font-family: "Plus Jakarta Sans", sans-serif; /* Шрифт, использованный ранее */
+  font-weight: 600; /* Пример настройки веса */
+  font-size: 1.2rem; /* Настройте размер шрифта */
+  letter-spacing: 0.05em; /* Настройте межбуквенный интервал */
+  color: rgba(255, 255, 255, 0.8); /* Цвет текста */
+  text-decoration: none; /* Уберите подчеркивание */
+  transition: color 0.3s ease; /* Добавьте плавный переход для цвета */
+}
+
+.project-name a:hover {
+  color: rgba(255, 255, 255, 1); /* Цвет текста при наведении */
+}
+
 /* cards section ^ */
 
 footer {
@@ -524,9 +612,9 @@ footer {
 }
 
 .footy-message {
-  text-align: center; /* Center the text inside the message */
+  text-align: center;
   background-color: transparent;
-  margin: 0; /* Remove any unnecessary margins */
+  margin: 0;
 }
 
 .contact-link {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/humanCard.css" />
 
     <!-- Lottie : Library dynamic icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
@@ -19,6 +20,7 @@
 
     <script defer src="js/animations.js"></script>
     <script defer src="js/eventHandlers.js"></script>
+    <script defer src="js/humanCard.js"></script>
   </head>
 
   <body>
@@ -68,162 +70,58 @@
             in digital realms"</h2>
           </div>
         </section>
+
+        <section class="human-card">
+          <div class="human-avatar">
+            <div class="avatar-pulse" style="filter: invert(12%)"></div>
+            <img src="assets/img/myPhoto.jpg" alt="Michael Piasetskyi" class="avatar-image">
+            <div class="avatar-dots">
+              <div class="dot" style="--i:1"></div>
+              <div class="dot" style="--i:2"></div>
+              <div class="dot" style="--i:3"></div>
+            </div>
+            <div class="avatar-overlay">✝</div>
+          </div>
         
-        <style>
-        .personality-section {
-          position: relative;
-          height: 220vh;
-          margin: 18vh auto 30vh;
-          width: 86%;
-          max-width: 1400px;
-          overflow: visible;
-          z-index: 50;
-        }
+          <div class="human-info">
+            <div class="info-item" data-category="basic">
+              <h1 class="bounce-element" data-alt="N a m e l e s s">
+                M<span class="glitch">i</span>ch<span class="glitch">ae</span>l Piasetskyi
+              </h1>
+              <div class="info-grid">
+                <p class="info-chip">27 y.o <span class="timecode">(9,855d)</span></p>
+                <p class="info-chip">planet Earth <span class="coords">[void]</span></p>
+                <p class="info-chip">UTC+2 <span class="tz-alternate">(EET)</span></p>
+              </div>
+            </div>
         
-        .personality-layers {
-          position: absolute;
-          width: 100%;
-          height: 150%;
-          pointer-events: none;
-        }
+            <div class="info-item" data-category="details">
+              <div class="info-roller">
+                <p class="info-paragraph">
+                  <span class="text-highlight">Digital craftsman</span> blending psychology 
+                  with <del>interface design</del> <ins>behavioral conditioning</ins>.<br>
+                  Believe in tech that feels 
+                  <span class="text-underline">human-first</span>.<br>
+                  <span class="mono">//system.out.println("Hello World");</span>
+                </p>
+                <div class="info-badges">
+                  <div class="badge">🌘 Nihil philosophy</div>
+                  <div class="badge">🎮 Retro gaming</div>
+                  <div class="badge">☕ Specialty coffee</div>
+                  <div class="badge" style="display:none">🕳️ 511 Kinderheim</div>
+                </div>
+              </div>
+            </div>
+          </div>
         
-        .p-layer {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          will-change: transform;
-        }
-        
-        .p-layer span {
-          position: absolute;
-          font-family: 'Inter Tight', sans-serif;
-          font-weight: 600;
-          color: rgba(255,255,255,0.64);
-          text-transform: lowercase;
-          white-space: nowrap;
-          letter-spacing: -0.02em;
-          transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        
-        .p-layer-1 span { font-size: 1.6rem; opacity: 0.4; }
-        .p-layer-2 span { font-size: 2.0rem; opacity: 0.6; }
-        .p-layer-3 span { font-size: 2.4rem; opacity: 0.8; }
-        
-        .p-layer-1 span:nth-child(1) { top: 12%; left: 8%; }
-        .p-layer-1 span:nth-child(2) { top: 24%; left: 78%; }
-        .p-layer-1 span:nth-child(3) { top: 48%; left: 14%; }
-        .p-layer-1 span:nth-child(4) { top: 68%; left: 82%; }
-        
-        .p-layer-2 span:nth-child(1) { top: 8%; left: 68%; }
-        .p-layer-2 span:nth-child(2) { top: 34%; left: 16%; }
-        .p-layer-2 span:nth-child(3) { top: 58%; left: 74%; }
-        .p-layer-2 span:nth-child(4) { top: 84%; left: 22%; }
-        
-        .p-layer-3 span:nth-child(1) { top: 4%; left: 22%; }
-        .p-layer-3 span:nth-child(2) { top: 42%; left: 64%; }
-        .p-layer-3 span:nth-child(3) { top: 62%; left: 8%; }
-        .p-layer-3 span:nth-child(4) { top: 88%; left: 72%; }
-        
-        .core-statement {
-          position: sticky;
-          top: 40vh;
-          z-index: 100;
-          max-width: 680px;
-          margin: 0 auto;
-          padding: 4rem;
-          mix-blend-mode: difference;
-        }
-        
-        .core-statement h2 {
-          font-family: 'Space Grotesk', sans-serif;
-          font-weight: 400;
-          font-size: 2.8rem;
-          line-height: 1.12;
-          color: #fff;
-          text-align: center;
-          opacity: 0;
-          transform: translateY(8px);
-          transition: all 1.4s ease-out;
-        }
-        
-        .core-statement h2.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        
-        .core-statement::before {
-          content: '';
-          position: absolute;
-          top: -50%;
-          left: -30%;
-          right: -30%;
-          bottom: -50%;
-          background: radial-gradient(circle, 
-            rgba(0,0,0,0.24) 0%, 
-            transparent 60%
-          );
-          z-index: -1;
-          pointer-events: none;
-        }
-        
-        @media (max-width: 768px) {
-          .personality-section {
-            height: 180vh;
-            width: 92%;
-            margin: 12vh auto 24vh;
-          }
-          
-          .core-statement h2 {
-            font-size: 2rem;
-            padding: 2rem;
-          }
-          
-          .p-layer-1 span { font-size: 1.2rem; }
-          .p-layer-2 span { font-size: 1.6rem; }
-          .p-layer-3 span { font-size: 1.8rem; }
-        }
-        </style>
-        
-        <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const layers = document.querySelectorAll('.p-layer');
-          const traits = [
-            "empathic", "curious", "precise", "analytical",
-            "intuitive", "experimental", "adaptable", "minimal"
-          ];
-        
-          layers.forEach(layer => {
-            for(let i = 0; i < 4; i++) {
-              const span = document.createElement('span');
-              span.textContent = traits[i % traits.length];
-              layer.appendChild(span);
+          <style>
+            .human-card::after {
+              content: "Die Puppe sieht nur aus wie ein Mensch";
+              font-size: 0;
+              color: transparent;
             }
-          });
-        
-          let current = 0;
-          let target = 0;
-          const statement = document.querySelector('.core-statement h2');
-          
-          const update = () => {
-            target = window.pageYOffset;
-            current += (target - current) * 0.14;
-        
-            layers.forEach(layer => {
-              const speed = layer.dataset.speed;
-              layer.style.transform = `translate3d(0, ${-current * speed}px, 0)`;
-            });
-        
-            if(target > window.innerHeight * 0.4) {
-              statement.classList.add('visible');
-            }
-        
-            requestAnimationFrame(update);
-          };
-        
-          window.addEventListener('scroll', update);
-          update();
-        });
-        </script>
+          </style>
+        </section>
         
         <section class="scrolling-projects">
           <div class="scrolling-container">
@@ -258,7 +156,7 @@
               <div class="card-top">
                 <div class="top-background-img">
                   <div class="top-logo">
-                    <!-- Logo content -->
+                    <!-- Логотип -->
                   </div>
                 </div>
               </div>
@@ -278,14 +176,13 @@
               </div>
               <div class="card-bottom">
                 <div class="project-name">
-                  <!-- Project name content -->
                   <a href="" class="project_git_link_3">StockyAi</a>
                 </div>
               </div>
             </div>
           </div>
           <div class="project-cards-right">
-            <div class="project-card2">
+            <div class="project-card2" data-background="assets/img/project2.jpg" data-hover-background="assets/img/hover2.jpg">
               <div class="card-top">
                 <div class="top-background-img">
                   <div class="top-logo">
@@ -296,11 +193,11 @@
               <div class="card-bottom">
                 <div class="project-name">
                   <!-- Project name content -->
-                  <a href="" class="project_git_link_2"></a>
+                  <a href="" class="project_git_link_2">ML</a>
                 </div>
               </div>
             </div>
-            <div class="project-card4">
+            <div class="project-card4" data-background="assets/img/project4.jpg" data-hover-background="assets/img/hover4.jpg">
               <div class="card-top">
                 <div class="top-background-img">
                   <div class="top-logo">
@@ -317,13 +214,6 @@
             </div>
           </div>
         </section>
-
-        <section class="contactMe-block">
-          <div class="smth-here-...">
-            <!-- Contact content -->
-          </div>
-        </section>
-      </main>
 
       <footer>
           <div class="footy-column">

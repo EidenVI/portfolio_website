@@ -105,3 +105,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const layers = document.querySelectorAll('.p-layer');
+  const traits = [
+    "empathic", "curious", "precise", "analytical",
+    "intuitive", "experimental", "adaptable", "minimal"
+  ];
+
+  layers.forEach(layer => {
+    for(let i = 0; i < 4; i++) {
+      const span = document.createElement('span');
+      span.textContent = traits[i % traits.length];
+      layer.appendChild(span);
+    }
+  });
+
+  let current = 0;
+  let target = 0;
+  const statement = document.querySelector('.core-statement h2');
+  
+  const update = () => {
+    target = window.pageYOffset;
+    current += (target - current) * 0.14;
+
+    layers.forEach(layer => {
+      const speed = layer.dataset.speed;
+      layer.style.transform = `translate3d(0, ${-current * speed}px, 0)`;
+    });
+
+    if(target > window.innerHeight * 0.4) {
+      statement.classList.add('visible');
+    }
+
+    requestAnimationFrame(update);
+  };
+
+  window.addEventListener('scroll', update);
+  update();
+});
