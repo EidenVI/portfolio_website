@@ -571,6 +571,42 @@ main {
 
 /* cards section ^ */
 
+.github-activity {
+  margin: 4rem auto;
+  padding: 2rem;
+  max-width: 960px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.github-activity h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.8rem;
+  color: #0366d6;
+  margin-bottom: 1rem;
+}
+
+.github-activity .activity-item {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: #ffffff;
+  border-left: 3px solid #0366d6;
+  border-radius: 8px;
+}
+
+.github-activity .repo-name {
+  font-weight: bold;
+  color: #0366d6;
+}
+
+.github-activity .event-time {
+  font-size: 0.9rem;
+  color: #6a737d;
+}
+
+/* footer section ^ */
+
 footer {
   display: flex;
   flex-direction: row;

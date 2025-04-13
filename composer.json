@@ -1,0 +1,19 @@
+{
+    "name": "db_user/personal_website",
+    "description": "null",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DbUser\\PersonalWebsite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "michael"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

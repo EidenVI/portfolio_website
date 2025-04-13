@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>NamelessCoder</title>
+    <link rel="icon" href="assets/img/1583304F-4E4E-42F9-B3FE-0DE19692A53A_1_201_a.jpeg" type="image/png">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/humanCard.css" />
 
@@ -156,7 +157,6 @@
               <div class="card-top">
                 <div class="top-background-img">
                   <div class="top-logo">
-                    <!-- Логотип -->
                   </div>
                 </div>
               </div>
@@ -170,7 +170,6 @@
               <div class="card-top">
                 <div class="top-background-img">
                   <div class="top-logo">
-                    <!-- Logo content -->
                   </div>
                 </div>
               </div>
@@ -186,13 +185,11 @@
               <div class="card-top">
                 <div class="top-background-img">
                   <div class="top-logo">
-                    <!-- Logo content -->
                   </div>
                 </div>
               </div>
               <div class="card-bottom">
                 <div class="project-name">
-                  <!-- Project name content -->
                   <a href="" class="project_git_link_2">ML</a>
                 </div>
               </div>
@@ -201,19 +198,233 @@
               <div class="card-top">
                 <div class="top-background-img">
                   <div class="top-logo">
-                    <!-- Logo content -->
                   </div>
                 </div>
               </div>
               <div class="card-bottom">
                 <div class="project-name">
-                  <!-- Project name content -->
                   <a href="" class="project_git_link_4">Empty</a>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        <section class="github-activity">
+          <div class="activity-header">
+            <h2 class="activity-title">
+              <span class="gradient-text">Code</span> Activity
+              <svg class="octicon" viewBox="0 0 16 16" width="16" height="16">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+              </svg>
+            </h2>
+            <div class="activity-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="PushEvent">Commits</button>
+              <button class="filter-btn" data-filter="PullRequestEvent">PRs</button>
+            </div>
+          </div>
+          
+          <div class="activity-feed">
+            <div class="activity-item skeleton">
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line short"></div>
+            </div>
+          </div>
+        </section>
+        
+        <style>
+        .github-activity {
+          margin: 4rem auto;
+          padding: 2rem;
+          max-width: 960px;
+          background: rgba(16, 24, 39, 0.8);
+          border-radius: 24px;
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255,255,255,0.1);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        }
+        
+        .activity-title {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 2.2rem;
+          color: #fff;
+          margin-bottom: 2rem;
+        }
+        
+        .gradient-text {
+          background: linear-gradient(45deg, #58a6ff, #8a63d2);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+        
+        .octicon {
+          width: 32px;
+          height: 32px;
+          color: #58a6ff;
+        }
+        
+        .activity-filters {
+          display: flex;
+          gap: 0.8rem;
+          margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+          padding: 0.6rem 1.4rem;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          color: #8b949e;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .filter-btn.active {
+          background: rgba(88,166,255,0.15);
+          color: #58a6ff;
+          border-color: rgba(88,166,255,0.3);
+        }
+        
+        .activity-feed {
+          display: grid;
+          gap: 1.2rem;
+        }
+        
+        .activity-item {
+          padding: 1.5rem;
+          background: rgba(16, 24, 39, 0.6);
+          border-radius: 12px;
+          border: 1px solid rgba(255,255,255,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          animation: itemAppear 0.6s ease forwards;
+          opacity: 0;
+        }
+        
+        @keyframes itemAppear {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .activity-item:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 16px rgba(0,0,0,0.24);
+          border-color: rgba(88,166,255,0.3);
+        }
+        
+        .repo-name {
+          font-weight: 600;
+          color: #58a6ff;
+          margin-right: 0.8rem;
+        }
+        
+        .event-type {
+          font-size: 0.85rem;
+          padding: 0.2rem 0.6rem;
+          border-radius: 6px;
+          background: rgba(88,166,255,0.15);
+          color: #58a6ff;
+        }
+        
+        .event-time {
+          font-size: 0.9rem;
+          color: #8b949e;
+          margin-top: 0.6rem;
+        }
+        
+        /* Skeleton Loading */
+        .skeleton {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .skeleton-line {
+          height: 1rem;
+          background: rgba(255,255,255,0.05);
+          border-radius: 4px;
+          margin-bottom: 0.8rem;
+        }
+        
+        .skeleton-line.short {
+          width: 60%;
+        }
+        
+        .skeleton::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.03),
+            transparent
+          );
+          animation: skeletonLoading 1.5s infinite;
+        }
+        
+        @keyframes skeletonLoading {
+          100% { left: 100%; }
+        }
+        </style>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Пример динамической загрузки данных
+          const loadActivity = async () => {
+            const feed = document.querySelector('.activity-feed');
+            feed.innerHTML = `
+              <div class="activity-item skeleton">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line short"></div>
+              </div>
+            `.repeat(3);
+        
+            try {
+              const response = await fetch('/api/github-activity');
+              const activities = await response.json();
+              
+              feed.innerHTML = activities.map(activity => `
+                <div class="activity-item" data-type="${activity.event_type}">
+                  <div class="activity-header">
+                    <span class="repo-name">${activity.repo_name}</span>
+                    <span class="event-type">${activity.event_type}</span>
+                  </div>
+                  <p>${activity.description}</p>
+                  <div class="event-time">
+                    ${activity.timestamp} • <a href="${activity.url}" target="_blank">View →</a>
+                  </div>
+                </div>
+              `).join('');
+            } catch (error) {
+              feed.innerHTML = `<div class="error">Failed to load activity</div>`;
+            }
+          };
+        
+          // Фильтрация
+          document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              document.querySelector('.filter-btn.active').classList.remove('active');
+              btn.classList.add('active');
+              
+              const filter = btn.dataset.filter;
+              document.querySelectorAll('.activity-item').forEach(item => {
+                item.style.display = filter === 'all' || item.dataset.type === filter 
+                  ? 'block' 
+                  : 'none';
+              });
+            });
+          });
+        
+          loadActivity();
+        });
+        </script>
 
       <footer>
           <div class="footy-column">
@@ -229,5 +440,6 @@
 
     <script src="js/animations.js"></script>
     <script src="js/eventHandlers.js"></script>
+    <script src="git_activity/assets/js/activity.js"></script>
   </body>
 </html>
